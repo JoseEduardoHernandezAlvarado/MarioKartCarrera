@@ -159,5 +159,14 @@ namespace MarioKartCarrera.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream MusicaF {
+            get {
+                return ResourceManager.GetStream("MusicaF", resourceCulture);
+            }
+        }
     }
 }

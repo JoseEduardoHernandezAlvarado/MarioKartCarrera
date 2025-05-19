@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace MarioKartCarrera
 {
@@ -18,7 +19,8 @@ namespace MarioKartCarrera
         int[] vueltasTotales;
         PictureBox[] Personajes;
         List<Point> recorrido;
-
+        private volatile bool ganadorAnunciado = false;
+        SoundPlayer Reproductor;
         public Form1()
         {
             // Corrección: evita problemas por escalado de DPI
@@ -31,7 +33,7 @@ namespace MarioKartCarrera
 
             InitializeComponent();
 
-            Personajes = new PictureBox[] { C1, C2, C3, C4, C5 };
+            Personajes = new PictureBox[] { Mario, Luigi, Yoshi, Toad, ShyGuy };
             hilos = new Thread[Personajes.Length];
             vueltasTotales = new int[Personajes.Length];
             InicializarRecorrido();
@@ -41,92 +43,116 @@ namespace MarioKartCarrera
         {
             recorrido = new List<Point>();
 
-            
-
-            for (int y = (int)(396 * 0.7); y >= (int)(81 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(129 * 0.5556), y));
-            for (int x = (int)(129 * 0.5556); x <= (int)(580 * 0.5556); x += 8)
-                recorrido.Add(new Point(x, (int)(81 * 0.7))); 
-            for (int y = (int)(81 * 0.7); y >= (int)(127 * 0.7); y -= 11)
-                recorrido.Add(new Point((int)(580 * 0.5556), y));
-            for (int x = (int)(580 * 0.5556); x <= (int)(642 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(127 * 0.7))); 
-            for (int y = (int)(127 * 0.7); y <= (int)(196 * 0.7); y += 11)
-                recorrido.Add(new Point((int)(642 * 0.5556), y)); 
-            for (int x = (int)(642 * 0.5556); x <= (int)(697 * 0.5556); x += 8)
-                recorrido.Add(new Point(x, (int)(196 * 0.7))); 
-            for (int y = (int)(196 * 0.7); y <= (int)(268 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(697 * 0.5556), y)); 
-            for (int x = (int)(697 * 0.5556); x <= (int)(1184 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(268 * 0.7))); 
-            for (int y = (int)(268 * 0.7); y >= (int)(106 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(1184 * 0.5556), y)); 
-            for (int x = (int)(1184 * 0.5556); x <= (int)(1255 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(106 * 0.7))); 
-            for (int y = (int)(106 * 0.7); y >= (int)(67 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(1255 * 0.5556), y)); 
-            for (int x = (int)(1255 * 0.5556); x <= (int)(1628 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(67 * 0.7)));
-            for (int y = (int)(67 * 0.7); y <= (int)(105 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1628 * 0.5556), y)); 
-            for (int x = (int)(1628 * 0.5556); x <= (int)(1721 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(105 * 0.7))); 
-            for (int y = (int)(105 * 0.7); y <= (int)(366 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1721 * 0.5556), y)); 
-            for (int x = (int)(1721 * 0.5556); x >= (int)(1605 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(366 * 0.7))); 
-            for (int y = (int)(366 * 0.7); y <= (int)(409 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1605 * 0.5556), y)); 
-            for (int x = (int)(1605 * 0.5556); x >= (int)(1343 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(409 * 0.7))); 
-            for (int y = (int)(409 * 0.7); y <= (int)(442 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1343 * 0.5556), y)); 
-            for (int x = (int)(1343 * 0.5556); x >= (int)(1005 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(442 * 0.7)));
-            for (int y = (int)(442 * 0.7); y <= (int)(488 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1005 * 0.5556), y)); 
-            for (int x = (int)(1005 * 0.5556); x >= (int)(710 * 0.5556); x -= 8)
-                recorrido.Add(new Point(x, (int)(488 * 0.7))); 
-            for (int y = (int)(488 * 0.7); y <= (int)(615 * 0.7); y += 11)
-                recorrido.Add(new Point((int)(710 * 0.5556), y));
-            for (int x = (int)(710 * 0.5556); x <= (int)(1680 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(615 * 0.7))); 
-            for (int y = (int)(615 * 0.7); y <= (int)(676 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1680 * 0.5556), y));
-            for (int x = (int)(1680 * 0.5556); x <= (int)(1729 * 0.5556); x += 8) 
-                recorrido.Add(new Point(x, (int)(676 * 0.7))); 
-            for (int y = (int)(676 * 0.7); y <= (int)(840 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1729 * 0.5556), y)); 
-            for (int x = (int)(1729 * 0.5556); x >= (int)(1665 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(840 * 0.7))); 
-            for (int y = (int)(840 * 0.7); y <= (int)(877 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(1665 * 0.5556), y)); 
-            for (int x = (int)(1665 * 0.5556); x >= (int)(1124 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(877 * 0.7))); 
-            for (int y = (int)(877 * 0.7); y >= (int)(800 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(1124 * 0.5556), y)); 
-            for (int x = (int)(1124 * 0.5556); x >= (int)(809 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(800 * 0.7))); 
-            for (int y = (int)(800 * 0.7); y >= (int)(762 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(809 * 0.5556), y)); 
-            for (int x = (int)(809 * 0.5556); x >= (int)(666 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(762 * 0.7))); 
-            for (int y = (int)(762 * 0.7); y <= (int)(925 * 0.7); y += 11) 
-                recorrido.Add(new Point((int)(666 * 0.5556), y));
-            for (int x = (int)(666 * 0.5556); x >= (int)(199 * 0.5556); x -= 8) 
-                recorrido.Add(new Point(x, (int)(925 * 0.7))); 
-            for (int y = (int)(925 * 0.7); y >= (int)(823 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(199 * 0.5556), y)); 
-            for (int x = (int)(199 * 0.5556); x >= (int)(144 * 0.5556); x -= 8)
-                recorrido.Add(new Point(x, (int)(823 * 0.7)));
-            for (int y = (int)(823 * 0.7); y >= (int)(396 * 0.7); y -= 11) 
-                recorrido.Add(new Point((int)(144 * 0.5556), y)); 
+            for (int y = 216; y >= 45; y -= 5)
+                recorrido.Add(new Point(52, y));
+            for (int x = 52; x <= 205; x += 5)
+                recorrido.Add(new Point(x, 45));
+            for (int y = 45; y <= 47; y += 5)
+                recorrido.Add(new Point(205, y));
+            for (int x = 205; x <= 221; x += 5)
+                recorrido.Add(new Point(x, 47));
+            for (int y = 47; y <= 73; y += 5)
+                recorrido.Add(new Point(221, y));
+            for (int x = 221; x <= 248; x += 5)
+                recorrido.Add(new Point(x, 73));
+            for (int y = 73; y <= 103; y += 5)
+                recorrido.Add(new Point(248, y));
+            for (int x = 248; x <= 271; x += 5)
+                recorrido.Add(new Point(x, 103));
+            for (int y = 103; y <= 139; y += 5)
+                recorrido.Add(new Point(271, y));
+            for (int x = 271; x <= 282; x += 5)
+                recorrido.Add(new Point(x, 139));
+            for (int y = 139; y <= 150; y += 5)
+                recorrido.Add(new Point(282, y));
+            for (int x = 282; x <= 443; x += 5)
+                recorrido.Add(new Point(x, 150));
+            for (int y = 150; y >= 130; y -= 5)
+                recorrido.Add(new Point(443, y));
+            for (int x = 443; x <= 467; x += 5)
+                recorrido.Add(new Point(x, 130));
+            for (int y = 130; y >= 66; y -= 5)
+                recorrido.Add(new Point(467, y));
+            for (int x = 467; x <= 496; x += 5)
+                recorrido.Add(new Point(x, 66));
+            for (int y = 66; y >= 44; y -= 5)
+                recorrido.Add(new Point(496, y));
+            for (int x = 496; x <= 643; x += 5)
+                recorrido.Add(new Point(x, 44));
+            for (int y = 44; y <= 67; y += 5)
+                recorrido.Add(new Point(643, y));
+            for (int x = 643; x <= 667; x += 5)
+                recorrido.Add(new Point(x, 67));
+            for (int y = 67; y <= 200; y += 5)
+                recorrido.Add(new Point(667, y));
+            for (int x = 667; x >= 644; x -= 5)
+                recorrido.Add(new Point(x, 200));
+            for (int y = 200; y <= 218; y += 5)
+                recorrido.Add(new Point(644, y));
+            for (int x = 644; x >= 544; x -= 5)
+                recorrido.Add(new Point(x, 218));
+            for (int y = 218; y <= 233; y += 5)
+                recorrido.Add(new Point(544, y));
+            for (int x = 544; x >= 469; x -= 5)
+                recorrido.Add(new Point(x, 233));
+            for (int y = 233; y <= 251; y += 5)
+                recorrido.Add(new Point(469, y));
+            for (int x = 469; x >= 362; x -= 5)
+                recorrido.Add(new Point(x, 251));
+            for (int y = 251; y <= 270; y += 5)
+                recorrido.Add(new Point(362, y));
+            for (int x = 362; x >= 274; x -= 5)
+                recorrido.Add(new Point(x, 270));
+            for (int y = 270; y <= 328; y += 5)
+                recorrido.Add(new Point(274, y));
+            for (int x = 274; x <= 654; x += 5)
+                recorrido.Add(new Point(x, 328));
+            for (int y = 328; y <= 364; y += 5)
+                recorrido.Add(new Point(654, y));
+            for (int x = 654; x <= 665; x += 5)
+                recorrido.Add(new Point(x, 364));
+            for (int y = 364; y <= 462; y += 5)
+                recorrido.Add(new Point(665, y));
+            for (int x = 665; x >= 602; x -= 5)
+                recorrido.Add(new Point(x, 462));
+            for (int y = 462; y <= 479; y += 5)
+                recorrido.Add(new Point(602, y));
+            for (int x = 602; x >= 445; x -= 5)
+                recorrido.Add(new Point(x, 479));
+            for (int y = 479; y >= 430; y -= 5)
+                recorrido.Add(new Point(445, y));
+            for (int x = 445; x >= 324; x -= 5)
+                recorrido.Add(new Point(x, 430));
+            for (int y = 430; y >= 444; y -= 5)
+                recorrido.Add(new Point(324, y));
+            for (int x = 324; x >= 294; x -= 5)
+                recorrido.Add(new Point(x, 444));
+            for (int y = 444; y >= 459; y -= 5)
+                recorrido.Add(new Point(294, y));
+            for (int x = 294; x >= 267; x -= 5)
+                recorrido.Add(new Point(x, 459));
+            for (int y = 459; y <= 484; y += 5)
+                recorrido.Add(new Point(267, y));
+            for (int x = 267; x >= 82; x -= 5)
+                recorrido.Add(new Point(x, 484));
+            for (int y = 484; y >= 406; y -= 5)
+                recorrido.Add(new Point(82, y));
+            for (int x = 82; x >= 52; x -= 5)
+                recorrido.Add(new Point(x, 406));
+            for (int y = 406; y >= 216; y -= 5)
+                recorrido.Add(new Point(52, y));
         }
+        public void Ganador(PictureBox ganador)
+        {
+            MessageBox.Show("¡El ganador es: " + ganador.Name + "!", "Ganador");
+            Reproductor.Stop();
+        }
+       
 
         private void MoverCarro(PictureBox carro, int index, int vueltas)
         {
             Random localRand = new Random(Guid.NewGuid().GetHashCode());
-            int velocidadFija = localRand.Next(5,7);
+            int velocidadFija = localRand.Next(20, 30);
             int vueltasActuales = 0;
 
             while (vueltasActuales < vueltas)
@@ -137,6 +163,12 @@ namespace MarioKartCarrera
                     Thread.Sleep(velocidadFija);
                 }
                 vueltasActuales++;
+            }
+            // Solo el primer carro en terminar anunciará el ganador
+            if (!ganadorAnunciado)
+            {
+                ganadorAnunciado = true;
+                Ganador(carro);
             }
         }
 
@@ -149,7 +181,58 @@ namespace MarioKartCarrera
         {
             try
             {
-                // Corrección: colocar todos los personajes al inicio del recorrido
+                Reproductor = new SoundPlayer(Properties.Resources. MusicaF);
+                Reproductor.PlayLooping();
+                for (int i = 0; i < Personajes.Length; i++)
+                {
+                    Personajes[i].Location = recorrido[0];
+                }
+
+                for (int i = 0; i < Personajes.Length; i++)
+                {
+                    int index = i;
+                    hilos[index] = new Thread(() => MoverCarro(Personajes[index], index, 1));
+                    hilos[index].Start();
+                }
+            }
+            catch (Exception d)
+            {
+                MessageBox.Show(d.Message);
+            }
+        }
+
+        private void btnPausa_Click(object sender, EventArgs e)
+        {
+            Reproductor.Stop();
+            try
+            {
+                for (int i = 0; i < hilos.Length; i++)
+                {
+                    if (hilos[i] != null && hilos[i].IsAlive)
+                        hilos[i].Suspend(); // ⚠️ Obsoleto
+                }
+            }
+            catch (Exception d)
+            {
+                MessageBox.Show(d.Message);
+            }
+        }
+
+        private void btnReinicio_Click(object sender, EventArgs e)
+        {
+            Reproductor = new SoundPlayer(Properties.Resources.MusicaF);
+            Reproductor.PlayLooping();
+            try
+            {
+                for (int i = 0; i < hilos.Length; i++)
+                {
+                    if (hilos[i] != null && hilos[i].IsAlive)
+                    {
+                        hilos[i].Abort(); // ⚠️ Obsoleto
+                        Personajes[i].Invoke(new Action(() => Personajes[i].Location = recorrido[0]));
+                    }
+                }
+                //nicio de nuevo ciclo de carrea
                 for (int i = 0; i < Personajes.Length; i++)
                 {
                     Personajes[i].Location = recorrido[0];
@@ -168,40 +251,9 @@ namespace MarioKartCarrera
             }
         }
 
-        private void btnPausa_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                for (int i = 0; i < hilos.Length; i++)
-                {
-                    if (hilos[i] != null && hilos[i].IsAlive)
-                        hilos[i].Suspend(); // ⚠️ Obsoleto
-                }
-            }
-            catch (Exception d)
-            {
-                MessageBox.Show(d.Message);
-            }
-        }
-
-        private void btnReinicio_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                for (int i = 0; i < hilos.Length; i++)
-                {
-                    if (hilos[i] != null && hilos[i].ThreadState == ThreadState.Suspended)
-                        hilos[i].Resume(); // ⚠️ Obsoleto
-                }
-            }
-            catch (Exception d)
-            {
-                MessageBox.Show(d.Message);
-            }
-        }
-
         private void btnDetener_Click(object sender, EventArgs e)
         {
+            Reproductor.Stop();
             try
             {
                 for (int i = 0; i < hilos.Length; i++)

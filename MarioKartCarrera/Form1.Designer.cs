@@ -28,80 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.C2 = new System.Windows.Forms.PictureBox();
-            this.C4 = new System.Windows.Forms.PictureBox();
-            this.C1 = new System.Windows.Forms.PictureBox();
-            this.C3 = new System.Windows.Forms.PictureBox();
-            this.C5 = new System.Windows.Forms.PictureBox();
+            this.Luigi = new System.Windows.Forms.PictureBox();
+            this.Toad = new System.Windows.Forms.PictureBox();
+            this.Mario = new System.Windows.Forms.PictureBox();
+            this.Yoshi = new System.Windows.Forms.PictureBox();
+            this.ShyGuy = new System.Windows.Forms.PictureBox();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnPausa = new System.Windows.Forms.Button();
             this.btnReinicio = new System.Windows.Forms.Button();
             this.btnDetener = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.C2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C5)).BeginInit();
+            this.lblCoordenadas = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Luigi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Toad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Yoshi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShyGuy)).BeginInit();
             this.SuspendLayout();
             // 
-            // C2
+            // Luigi
             // 
-            this.C2.Image = global::MarioKartCarrera.Properties.Resources.c2;
-            this.C2.Location = new System.Drawing.Point(62, 285);
-            this.C2.Name = "C2";
-            this.C2.Size = new System.Drawing.Size(44, 40);
-            this.C2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.C2.TabIndex = 1;
-            this.C2.TabStop = false;
+            this.Luigi.Image = global::MarioKartCarrera.Properties.Resources.c2;
+            this.Luigi.Location = new System.Drawing.Point(46, 232);
+            this.Luigi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Luigi.Name = "Luigi";
+            this.Luigi.Size = new System.Drawing.Size(33, 32);
+            this.Luigi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Luigi.TabIndex = 1;
+            this.Luigi.TabStop = false;
             // 
-            // C4
+            // Toad
             // 
-            this.C4.Image = global::MarioKartCarrera.Properties.Resources.c4;
-            this.C4.Location = new System.Drawing.Point(62, 331);
-            this.C4.Name = "C4";
-            this.C4.Size = new System.Drawing.Size(44, 40);
-            this.C4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.C4.TabIndex = 2;
-            this.C4.TabStop = false;
+            this.Toad.Image = global::MarioKartCarrera.Properties.Resources.c4;
+            this.Toad.Location = new System.Drawing.Point(46, 269);
+            this.Toad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Toad.Name = "Toad";
+            this.Toad.Size = new System.Drawing.Size(33, 32);
+            this.Toad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Toad.TabIndex = 2;
+            this.Toad.TabStop = false;
             // 
-            // C1
+            // Mario
             // 
-            this.C1.Image = global::MarioKartCarrera.Properties.Resources.C1;
-            this.C1.Location = new System.Drawing.Point(34, 285);
-            this.C1.Name = "C1";
-            this.C1.Size = new System.Drawing.Size(44, 40);
-            this.C1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.C1.TabIndex = 3;
-            this.C1.TabStop = false;
+            this.Mario.Image = global::MarioKartCarrera.Properties.Resources.C1;
+            this.Mario.Location = new System.Drawing.Point(26, 232);
+            this.Mario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mario.Name = "Mario";
+            this.Mario.Size = new System.Drawing.Size(33, 32);
+            this.Mario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Mario.TabIndex = 3;
+            this.Mario.TabStop = false;
             // 
-            // C3
+            // Yoshi
             // 
-            this.C3.Image = global::MarioKartCarrera.Properties.Resources.c3;
-            this.C3.Location = new System.Drawing.Point(62, 373);
-            this.C3.Name = "C3";
-            this.C3.Size = new System.Drawing.Size(44, 40);
-            this.C3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.C3.TabIndex = 4;
-            this.C3.TabStop = false;
+            this.Yoshi.Image = global::MarioKartCarrera.Properties.Resources.c3;
+            this.Yoshi.Location = new System.Drawing.Point(46, 303);
+            this.Yoshi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Yoshi.Name = "Yoshi";
+            this.Yoshi.Size = new System.Drawing.Size(33, 32);
+            this.Yoshi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Yoshi.TabIndex = 4;
+            this.Yoshi.TabStop = false;
             // 
-            // C5
+            // ShyGuy
             // 
-            this.C5.Image = global::MarioKartCarrera.Properties.Resources.c5;
-            this.C5.Location = new System.Drawing.Point(34, 360);
-            this.C5.Name = "C5";
-            this.C5.Size = new System.Drawing.Size(44, 40);
-            this.C5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.C5.TabIndex = 5;
-            this.C5.TabStop = false;
+            this.ShyGuy.Image = global::MarioKartCarrera.Properties.Resources.c5;
+            this.ShyGuy.Location = new System.Drawing.Point(26, 292);
+            this.ShyGuy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShyGuy.Name = "ShyGuy";
+            this.ShyGuy.Size = new System.Drawing.Size(33, 32);
+            this.ShyGuy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ShyGuy.TabIndex = 5;
+            this.ShyGuy.TabStop = false;
             // 
             // btnInicio
             // 
             this.btnInicio.BackColor = System.Drawing.Color.Transparent;
             this.btnInicio.BackgroundImage = global::MarioKartCarrera.Properties.Resources.btninicio;
             this.btnInicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInicio.Location = new System.Drawing.Point(419, 12);
+            this.btnInicio.Location = new System.Drawing.Point(314, 10);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(53, 52);
+            this.btnInicio.Size = new System.Drawing.Size(40, 42);
             this.btnInicio.TabIndex = 6;
             this.btnInicio.UseVisualStyleBackColor = false;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
@@ -111,9 +118,10 @@
             this.btnPausa.BackColor = System.Drawing.Color.Transparent;
             this.btnPausa.BackgroundImage = global::MarioKartCarrera.Properties.Resources.btnpausa;
             this.btnPausa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPausa.Location = new System.Drawing.Point(507, 12);
+            this.btnPausa.Location = new System.Drawing.Point(380, 10);
+            this.btnPausa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPausa.Name = "btnPausa";
-            this.btnPausa.Size = new System.Drawing.Size(53, 52);
+            this.btnPausa.Size = new System.Drawing.Size(40, 42);
             this.btnPausa.TabIndex = 7;
             this.btnPausa.UseVisualStyleBackColor = false;
             this.btnPausa.Click += new System.EventHandler(this.btnPausa_Click);
@@ -123,9 +131,10 @@
             this.btnReinicio.BackColor = System.Drawing.Color.Transparent;
             this.btnReinicio.BackgroundImage = global::MarioKartCarrera.Properties.Resources.btnre;
             this.btnReinicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReinicio.Location = new System.Drawing.Point(419, 92);
+            this.btnReinicio.Location = new System.Drawing.Point(314, 75);
+            this.btnReinicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReinicio.Name = "btnReinicio";
-            this.btnReinicio.Size = new System.Drawing.Size(53, 52);
+            this.btnReinicio.Size = new System.Drawing.Size(40, 42);
             this.btnReinicio.TabIndex = 8;
             this.btnReinicio.UseVisualStyleBackColor = false;
             this.btnReinicio.Click += new System.EventHandler(this.btnReinicio_Click);
@@ -135,53 +144,67 @@
             this.btnDetener.BackColor = System.Drawing.Color.Transparent;
             this.btnDetener.BackgroundImage = global::MarioKartCarrera.Properties.Resources.btnquitar;
             this.btnDetener.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDetener.Location = new System.Drawing.Point(507, 92);
+            this.btnDetener.Location = new System.Drawing.Point(380, 75);
+            this.btnDetener.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDetener.Name = "btnDetener";
-            this.btnDetener.Size = new System.Drawing.Size(53, 52);
+            this.btnDetener.Size = new System.Drawing.Size(40, 42);
             this.btnDetener.TabIndex = 9;
             this.btnDetener.UseVisualStyleBackColor = false;
             this.btnDetener.Click += new System.EventHandler(this.btnDetener_Click);
             // 
+            // lblCoordenadas
+            // 
+            this.lblCoordenadas.AutoSize = true;
+            this.lblCoordenadas.Location = new System.Drawing.Point(553, 129);
+            this.lblCoordenadas.Name = "lblCoordenadas";
+            this.lblCoordenadas.Size = new System.Drawing.Size(35, 13);
+            this.lblCoordenadas.TabIndex = 10;
+            this.lblCoordenadas.Text = "label1";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImage = global::MarioKartCarrera.Properties.Resources.CircuitoMario_Kart;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(736, 531);
+            this.Controls.Add(this.lblCoordenadas);
             this.Controls.Add(this.btnDetener);
             this.Controls.Add(this.btnReinicio);
             this.Controls.Add(this.btnPausa);
             this.Controls.Add(this.btnInicio);
-            this.Controls.Add(this.C5);
-            this.Controls.Add(this.C3);
-            this.Controls.Add(this.C1);
-            this.Controls.Add(this.C4);
-            this.Controls.Add(this.C2);
+            this.Controls.Add(this.ShyGuy);
+            this.Controls.Add(this.Yoshi);
+            this.Controls.Add(this.Mario);
+            this.Controls.Add(this.Toad);
+            this.Controls.Add(this.Luigi);
             this.Location = new System.Drawing.Point(-20, 0);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.C2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Luigi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Toad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Yoshi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShyGuy)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox C2;
-        private System.Windows.Forms.PictureBox C4;
-        private System.Windows.Forms.PictureBox C1;
-        private System.Windows.Forms.PictureBox C3;
-        private System.Windows.Forms.PictureBox C5;
+        private System.Windows.Forms.PictureBox Luigi;
+        private System.Windows.Forms.PictureBox Toad;
+        private System.Windows.Forms.PictureBox Mario;
+        private System.Windows.Forms.PictureBox Yoshi;
+        private System.Windows.Forms.PictureBox ShyGuy;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnPausa;
         private System.Windows.Forms.Button btnReinicio;
         private System.Windows.Forms.Button btnDetener;
+        private System.Windows.Forms.Label lblCoordenadas;
     }
 }
 
