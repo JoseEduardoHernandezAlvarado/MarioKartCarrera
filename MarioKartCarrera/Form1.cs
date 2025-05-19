@@ -152,7 +152,7 @@ namespace MarioKartCarrera
         private void MoverCarro(PictureBox carro, int index, int vueltas)
         {
             Random localRand = new Random(Guid.NewGuid().GetHashCode());
-            int velocidadFija = localRand.Next(20, 30);
+            int velocidadFija = localRand.Next(30,50);
             int vueltasActuales = 0;
 
             while (vueltasActuales < vueltas)
